@@ -85,4 +85,5 @@ Santiago Balocco
 Curso Python con Django - Proyecto final
 
 ## Video de youtube mostrando todas las funcionalidades
+https://youtu.be/7RkBfpmzpLY?si=UpKSKbvuOXb89W9T
 
