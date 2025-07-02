@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Editar perfil{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4">Editar perfil</h2>
+
+  {% if user_form.errors or profile_form.errors %}
+    <div class="alert alert-danger">
+      <ul class="mb-0">
+        {% for field in user_form %}
+          {% for error in field.errors %}
+            <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+        {% for field in profile_form %}
+          {% for error in field.errors %}
+            <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+        {% for error in user_form.non_field_errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+        {% for error in profile_form.non_field_errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <h4>Datos de usuario</h4>
+    <div style="margin-bottom: 15px;">
+      {{ user_form.username.label_tag }}<br>
+      {{ user_form.username }}
+    </div>
+    <div style="margin-bottom: 15px;">
+      {{ user_form.email.label_tag }}<br>
+      {{ user_form.email }}
+    </div>
+
+    <h4>Datos del perfil</h4>
+    <div style="margin-bottom: 15px;">
+      {{ profile_form.avatar.label_tag }}<br>
+      {{ profile_form.avatar }}
+    </div>
+    <div style="margin-bottom: 15px;">
+      {{ profile_form.bio.label_tag }}<br>
+      {{ profile_form.bio }}
+    </div>
+    <div style="margin-bottom: 15px;">
+      {{ profile_form.birth_date.label_tag }}<br>
+      {{ profile_form.birth_date }}
+    </div>
+
+    <button class="btn btn-primary" type="submit">Guardar cambios</button>
+  </form>
+</div>
+{% endblock %}

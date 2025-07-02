@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Mensajes recibidos</h2>
+  {% for msg in recibidos %}
+    <div class="card mb-2">
+      <div class="card-body">
+        <p><strong>De:</strong> {{ msg.sender.username }}</p>
+        <p>{{ msg.content }}</p>
+      </div>
+    </div>
+  {% empty %}
+    <p>No tienes mensajes recibidos.</p>
+  {% endfor %}
+
+  <hr>
+
+  <h2>Mensajes enviados</h2>
+  {% for msg in enviados %}
+    <div class="card mb-2">
+      <div class="card-body">
+        <p><strong>Para:</strong> {{ msg.receiver.username }}</p>
+        <p>{{ msg.content }}</p>
+      </div>
+    </div>
+  {% empty %}
+    <p>No has enviado mensajes aún.</p>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Acerca de mí</h2>
+<p><strong>Biografía:</strong></p>
+<p>{{ profile.bio|default:"Este autor no ha escrito una biografía aún." }}</p>
+{% endblock %}
