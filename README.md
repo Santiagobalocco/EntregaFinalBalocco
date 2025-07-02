@@ -63,7 +63,7 @@ python manage.py runserver
 
 5. Acceder en tu navegador a `http://127.0.0.1:8000/`
 
-## Capturas
+## 
 
 Incluye vistas de:  
 - Inicio  
